@@ -44,6 +44,7 @@ interface PersistResult {
 
 const POLL_INTERVAL_MS = 5_000;
 const MAX_POLL_MS = 30 * 60 * 1_000;
+const PERSIST_TIMEOUT_MS = 15 * 60 * 1_000;
 
 async function sleepWithSignal(ms: number, signal: AbortSignal): Promise<void> {
   if (signal.aborted) throw new Error('aborted');
@@ -116,7 +117,7 @@ function makePollHandler(taskType: 'tti' | 'itv' | 'tts'): Parameters<typeof tas
               extra: input.extra,
             },
             signal,
-            timeoutMs: 120_000, // 大文件下载/写盘可能比较慢
+            timeoutMs: PERSIST_TIMEOUT_MS, // 大文件下载/写盘可能比较慢，不能早于真实落盘完成
           });
           return persisted.asset;
         }

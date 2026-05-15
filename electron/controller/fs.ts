@@ -10,7 +10,7 @@ import { BaseController } from './base';
 import { validateUrl } from '../service/url-validator';
 import { getDecryptedApiKey } from '../service/settings/ChannelConfigService';
 
-const DOWNLOAD_TIMEOUT_MS = 180_000;
+const DOWNLOAD_TIMEOUT_MS = 10 * 60_000;
 
 function isPathAllowed(filePath: string): boolean {
   const normalized = path.resolve(filePath);
