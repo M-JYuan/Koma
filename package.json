@@ -4,6 +4,15 @@
   "version": "1.0.0",
   "author": "Koma Studio",
   "description": "AI 视频创作与分镜制作工具。",
+  "license": "GPL-3.0-or-later",
+  "homepage": "https://github.com/M-JYuan/Koma#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/M-JYuan/Koma.git"
+  },
+  "bugs": {
+    "url": "https://github.com/M-JYuan/Koma/issues"
+  },
   "main": "./public/electron/main.js",
   "scripts": {
     "dev": "npm run build-builtin-plugins && ee-bin dev",
